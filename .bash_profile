@@ -9,6 +9,13 @@
 #
 # ------------------------------------------------------------------------------------------------------------
 
+#
+# To __git_ps1 set we need to setup git-prompt.sh
+# You can do this by
+# curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+#
+source ~/.git-prompt.sh 
+
 # Default interaction prompt
 # 0 [06:22] root@debian-wheezy /home/git/organization/repo (branch) #
 export PS1='$? \[\033[01;32m\][$(date +%H:%M)]\[\033[00m\] \[\033[01;31m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\[\033[01;35m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
