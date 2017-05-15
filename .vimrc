@@ -25,20 +25,26 @@ Plugin 'vim-perl/vim-perl'
 Plugin 'pangloss/vim-javascript'
 " plugin for json syntax
 Plugin 'elzr/vim-json'
-" plugin for neat status line
-Plugin 'maciakl/vim-neatstatus'
 " plugin to easy find file
 Plugin 'kien/ctrlp.vim'
 " display tag of class
 Plugin 'majutsushi/tagbar'
- map <Leader>t :CtrlPBuffer<CR>
-  let g:ctrlp_map = '<C-p>'
-  let g:ctrlp_working_path_mode = 0 " don’t manage working directory.
-  let g:ctrlp_use_caching = 1
-  let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v\c\.(git|svn)$|cgi/t/sandbox|cover_db',
-  \ 'file': '\v\c\.(swf|bak|png|gif|js|mov|ico|jpg|pdf|jrxml)$'
-   \ }
+" tree explorer
+Plugin 'scrooloose/nerdtree'
+" Status line
+Plugin 'vim-airline/vim-airline'
+" HTML Syntax
+Plugin 'othree/html5.vim'
+" Mojo html.ep
+Plugin 'yko/mojo.vim'
+map <Leader>t :CtrlPBuffer<CR>
+ let g:ctrlp_map = '<C-p>'
+ let g:ctrlp_working_path_mode = 0 " don’t manage working directory.
+ let g:ctrlp_use_caching = 1
+ let g:ctrlp_custom_ignore = {
+ \ 'dir':  '\v\c\.(git|svn)$|cgi/t/sandbox|cover_db',
+ \ 'file': '\v\c\.(swf|bak|png|gif|js|mov|ico|jpg|pdf|jrxml)$'
+  \ }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
