@@ -71,7 +71,7 @@ listbranches() {
 }
 
 # list current active branch in all repos in parent directory
-listbranch() {
+listactivebranches() {
     find . -type d -name .git | while read line; do
         (
         cd $line
@@ -83,11 +83,30 @@ listbranch() {
     done
 }
 
-# update branch with latest changes from upstream master
-# This expects upstream to be set with name upstream, if you use any other name update accordingly
+# update branch with latest changes from remote branch
+# pass remote name or it will default to upstream
 branchupdate() {
-    git fetch upstream
+    upstream=${1:-upstream}
+    branch=${2:-master}
+    git fetch $upstream
     git fetch -p && git rebase -p @{u}
-    git merge upstream/master
+    git merge $upstream/$branch
     git push origin HEAD
+}
+
+mergeupstreammaster() {
+    upstream=${1:-upstream}
+    branch=${2:-master}
+    git fetch $upstream
+    git merge $upstream/$branch
+}
+
+# addgitremote <remotename> <githubusername/forkname>
+addgitremote() {
+    REMOTES=`git remote -v`
+    REMOTES=($REMOTES)
+
+    UPSTREAM=$(echo "${REMOTES[1]}" | sed -E "s/:(\w+)\//:${2}\//")
+
+    git remote add $1 ${UPSTREAM}
 }
