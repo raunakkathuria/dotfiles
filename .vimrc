@@ -27,8 +27,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 " plugin to easy find file
 Plugin 'kien/ctrlp.vim'
-" display tag of class
-Plugin 'majutsushi/tagbar'
 " tree explorer
 Plugin 'scrooloose/nerdtree'
 " Status line
@@ -37,6 +35,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'othree/html5.vim'
 " Mojo html.ep
 Plugin 'yko/mojo.vim'
+" Markdown highlighter
+Plugin 'plasticboy/vim-markdown'
 map <Leader>t :CtrlPBuffer<CR>
  let g:ctrlp_map = '<C-p>'
  let g:ctrlp_working_path_mode = 0 " don’t manage working directory.
@@ -145,3 +145,5 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+
+map <F5> :NERDTreeToggle<CR>

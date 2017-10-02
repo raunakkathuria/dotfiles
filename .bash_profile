@@ -14,7 +14,7 @@
 # You can do this by
 # curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 #
-source ~/.git-prompt.sh 
+source ~/.git-prompt.sh
 
 # Default interaction prompt
 # 0 [06:22] root@debian-wheezy /home/git/organization/repo (branch) #
@@ -50,6 +50,7 @@ ggrep() {
 
 # delete branches other than master
 deletebranches() {
+    git checkout master
     for i in $(git branch | sed -e s/\\*//g); do
         if [[ $i != "master" ]]; then
             git branch -D $i;
@@ -94,6 +95,7 @@ branchupdate() {
     git push origin HEAD
 }
 
+# only merge upstream, don't push changes to branch
 mergeupstreammaster() {
     upstream=${1:-upstream}
     branch=${2:-master}
