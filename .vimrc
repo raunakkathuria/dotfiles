@@ -37,6 +37,8 @@ Plugin 'othree/html5.vim'
 Plugin 'yko/mojo.vim'
 " Markdown highlighter
 Plugin 'plasticboy/vim-markdown'
+" Code tags
+Plugin 'majutsushi/tagbar'
 map <Leader>t :CtrlPBuffer<CR>
  let g:ctrlp_map = '<C-p>'
  let g:ctrlp_working_path_mode = 0 " don’t manage working directory.
@@ -91,6 +93,7 @@ set virtualedit=block
 set wrap
 "set nu
 "set spell spelllang=en_us
+set colorcolumn=80
 syntax on
 
 colorscheme desert
@@ -101,7 +104,8 @@ highlight   FoldColumn                            ctermbg=8  ctermfg=14
 highlight   Folded                                ctermbg=8  ctermfg=14
 highlight   Search        term=reverse cterm=bold ctermbg=11 ctermfg=0
 highlight   Visual        term=NONE    cterm=bold ctermbg=10 ctermfg=8
-"
+highlight   ColorColumn                           ctermbg=8
+
 "" makes Omni Completion less pinky :P
 highlight   Pmenu                                 ctermbg=2  ctermfg=0
 highlight   PmenuSel                              ctermbg=7  ctermfg=0
@@ -147,3 +151,4 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 map <F5> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
