@@ -108,7 +108,7 @@ addgitremote() {
     REMOTES=`git remote -v`
     REMOTES=($REMOTES)
 
-    UPSTREAM=$(echo "${REMOTES[1]}" | sed -E "s/:(\w+-?\w?)\//:${2}\//")
+    UPSTREAM=$(echo "${REMOTES[1]}" | sed -E "s/:(\w+-?\w+)\//:${2}\//")
 
     git remote add $1 ${UPSTREAM}
 }
