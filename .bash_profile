@@ -84,20 +84,9 @@ listactivebranches() {
     done
 }
 
-# update branch with latest changes from remote branch
-# pass remote name or it will default to upstream
-branchupdate() {
-    upstream=${1:-upstream}
-    branch=${2:-master}
-    git fetch $upstream
-    git fetch -p && git rebase -p @{u}
-    git merge $upstream/$branch
-    git push origin HEAD
-}
-
 # only merge upstream, don't push changes to branch
 mergeupstreammaster() {
-    upstream=${1:-upstream}
+    upstream=${1:-origin}
     branch=${2:-master}
     git fetch $upstream
     git merge $upstream/$branch
