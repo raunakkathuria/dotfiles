@@ -152,3 +152,7 @@ inoremap <Up> <C-o>gk
 
 map <F5> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+
+let g:airline#extensions#tabline#enabled = 1                                    
+let g:airline#extensions#tabline#show_tab_nr = 1                                
+let g:airline#extensions#tabline#buffer_idx_mode = 1
