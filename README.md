@@ -33,3 +33,21 @@ Contains configuration for:
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && wget -O ~/.vimrc https://raw.githubusercontent.com/raunakkathuria/dotfiles/master/.vimrc && wget -O ~/.bash_profile https://raw.githubusercontent.com/raunakkathuria/dotfiles/master/.bash_profile && curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh && sudo apt-get install exuberant-ctags
 ```
+
+#### neovim
+
+```
+# install neovim
+# more details: https://github.com/neovim/neovim/wiki/Installing-Neovim
+sudo apt-get install neovim
+```
+
+```
+# install plugin manager
+https://github.com/junegunn/vim-plug
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+:!PlugInstall
+```
