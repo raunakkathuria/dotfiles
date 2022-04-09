@@ -1,5 +1,7 @@
 source ~/.config/nvim/plugins.vim
 
+filetype plugin on
+
 set nocompatible                                   " disable compatibility to old-time vi
 set showmatch                                      " show matching
 set ignorecase                                     " case insensitive
@@ -13,16 +15,17 @@ set shiftwidth=4                                   " width for autoindents
 set autoindent                                     " indent a new line the same amount as the line just typed
 set number                                         " add line numbers
 set wildmode=longest,list                          " get bash-like tab completions
-set cc=80                                          " set an 80 column border for good coding style
 filetype plugin indent on                          " allow auto-indenting depending on file type
 syntax on                                          " syntax highlighting
-set mouse=a                                        " enable mouse click
+set mouse=c                                        " disable mouse click
 set clipboard=unnamedplus                          " using system clipboard
-filetype plugin on
 set cursorline                                     " highlight current cursorline
+set cursorcolumn                                   " highlight current cursorcolumn
+set cc=80                                          " set an 80 column border for good coding style
 set ttyfast                                        " Speed up scrolling in Vim
 set hidden                                         " swtich file without saving
 set list                                           " Display unprintable characters f12 - switches
+set nowrap                                         " do not automatically wrap on load
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
 
 " color schemes
@@ -31,7 +34,6 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme dracula
-" colorscheme desert
 
 " open new split panes to right and below
 set splitright
