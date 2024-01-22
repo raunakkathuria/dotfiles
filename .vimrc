@@ -152,3 +152,14 @@ inoremap <Up> <C-o>gk
 
 map <F5> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+
+function! Preserve(command)
+  " Preparation: save window state
+  let l:saved_winview = winsaveview()
+  " Run the command:
+  execute a:command
+  " Clean up: restore previous window position
+  call winrestview(l:saved_winview)
+endfunction
+
+nnoremap <F6> :call Preserve("%s/\\s\\+$//e")<CR>
