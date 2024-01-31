@@ -48,6 +48,30 @@ ggrep() {
     done
 }
 
+# git replace for multiple repos
+# go to parent directory where all repo are located then greplace <original_text> <new_text>
+greplace() {
+    if [ ! "$#" -eq 2 ]; then
+      echo "Need <original_text> to replace and <new_text>";
+      return 1;
+    fi
+
+    original_text=$1
+    new_text=$2
+
+    find . -type d -name .git | while read line; do
+        (
+        cd $line/..
+        cwd=$(pwd)
+        echo "$(tput setaf 2)$cwd$(tput sgr0)"
+        git grep -l $original_text | xargs sed -i "s/"$original_text"/"$new_text"/g" 2>/dev/null
+        if [ $? -eq 0 ]; then
+            echo "replaced $original_text with $new_text"
+        fi
+        )
+    done
+}
+
 # delete branches other than master
 deletebranches() {
     git checkout master
@@ -95,11 +119,13 @@ mergeupstreammaster() {
 # addgitremote <remotename> <githubusername/forkname>
 addgitremote() {
     REMOTES=`git remote -v`
+    remotename=${1:-raunakkathuria}
+    forkname=${1:-raunakkathuria}
     REMOTES=($REMOTES)
 
-    UPSTREAM=$(echo "${REMOTES[1]}" | sed -E "s/:(\w+-?\w+)\//:${2}\//")
+    UPSTREAM=$(echo "${REMOTES[1]}" | sed -E "s/:(\w+-?\w+)\//:${forkname}\//")
 
-    git remote add $1 ${UPSTREAM}
+    git remote add $remotename ${UPSTREAM}
 }
 
 # need: sudo apt install xclip
